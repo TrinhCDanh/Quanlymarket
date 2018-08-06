@@ -1,0 +1,35 @@
+variables:
+  GIT_STRATEGY: none
+
+before_script:
+  - whoami
+  - pwd
+  - echo -e "Start Script\n"
+  
+stages:
+  - build_develop
+  #- test_master
+  #- deploy_staging
+
+develop:
+  stage: build_develop
+  only:
+    # only:develop means that this build will run only when something is pushed to the develop branch. You can remove this block completely 
+    #- develop
+    - DEV
+  script:
+    - pwd
+    - cd /home/admin/web/qlcho.dev.digiprojects.top/public_html/
+    # Add the private key to this user
+    - pwd
+    - which ssh-agent
+    # - eval $(ssh-agent -s) && ssh-add <(echo "$SSH_PRIVATE_KEY") && mkdir -p ~/.ssh
+    - git config --global user.email "git@gitlab.digiprojects.top" && git config --global user.name "Gitlab on Vesta"
+    - git pull
+    - pwd
+    #- chown -R dev:dev /home/dev/htdocs/e-approval/
+    - echo -e "build_develop Script\n"
+
+after_script:
+    - git status
+    - echo -e "Completed Script\n"

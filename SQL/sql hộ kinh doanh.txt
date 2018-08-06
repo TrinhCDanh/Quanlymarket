@@ -1,0 +1,29 @@
+﻿SELECT hkd.id, hkd.ma_so_ho_kd, hkd.ten_ho_kd, c.ten AS cho, hkd.tang, hkd.sdt_ho_kd, hkd.fax_ho_kd, hkd.email_ho_kd, hkd.website, nkd.ten_nganh,
+hkd.von_kd, hkd.ho_chu_ho_kd, hkd.ten_chu_ho_kd, hkd.gioi_tinh, hkd.ngay_sinh, hkd.dan_toc, hkd.quoc_tich, hkd.sdt_chu_ho_kd,
+hkd.loai_giay_to, hkd.ma_so_giay_to, hkd.ngay_cap_giay_to, hkd.noi_cap, hkd.dia_chi_thuong_tru, hkd.dia_chi_tam_tru,
+hkd.ngay_dang_ki_1st, hkd.so_lan_thay_doi, hkd.ngay_thay_doi
+
+FROM ho_kinh_doanh AS hkd
+INNER JOIN cho AS c ON c.id = hkd.id_cho
+INNER JOIN nganh_kd AS nkd ON nkd.id = hkd.id_nganh_kd
+
+WHERE fax_ho_kd LIKE '1234' 
+
+
+/*INSERT*/
+INSERT INTO ho_kinh_doanh (id,ma_so_ho_kd,ten_ho_kd,id_cho,tang,sdt_ho_kd,fax_ho_kd,email_ho_kd,website,id_nganh_kd,von_kd,
+ho_chu_ho_kd,ten_chu_ho_kd,gioi_tinh,ngay_sinh,dan_toc,quoc_tich,sdt_chu_ho_kd,loai_giay_to,ma_so_giay_to,ngay_cap_giay_to,
+noi_cap,dia_chi_thuong_tru,dia_chi_tam_tru,ngay_dang_ki_1st,so_lan_thay_doi,ngay_thay_doi)
+VALUES (7,'299','Nguyễn Văn A',3,'16','01672981854','3265','btt1','btt11',4,'2000000','Trần','Nam',1,'1996-02-13','Kinh',
+'Việt Nam','0905655863',2,'212548869','2018-04-20','CA','20 Lê Đình Cẩn','20 Huỳnh Thiện Lộc','2018-05-28',3,'2018-01-23');
+
+
+
+/*UPDATE*/
+UPDATE ho_kinh_doanh
+SET ten_ho_kd = 'Nguyễn Văn A'
+WHERE id = 5;
+
+UPDATE ho_kinh_doanh
+SET ten_chu_ho_kd = 'Tuấn' , dan_toc = 'Nùng'
+WHERE id<2 AND id>5

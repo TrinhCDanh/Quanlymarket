@@ -1,0 +1,13 @@
+-Đăt tên class và id html : Từ khóa có 2 từ trở lên cách nhau bằng dấu gạch dưới . ví dụ : ho_ten, tinh_thanh, quan_huyen .....
+Không đặt tên quá sến súa, đặt tên có khoa học, dễ nhớ
+
+-Đặt tên hàm trong Php : từ khóa có 2 từ trở lên, viết thương chữ cái đầu tiên, chữ thứ hai viết hoa, vD :
+getTinhThanh, getQuanHuyen, create, postImage .....
+
+-Đặt biến trong php : từ khóa có 2 từ trở lên , cách nhau bằng dấu gạch dân dưới hoặc viết thương ký tự đầu tiên,
+viết hoa ký tự thứ 2 : vi du :  tinh_thanh, quanHuyen ....
+
+-Đặt tên link : cách nhau bởi dấu gạch giuawx : ví dụ  admin/upload-image.
+-Controller đặt trong thư mục Controller/Admin
+-Model đặt trong thư mục model
+

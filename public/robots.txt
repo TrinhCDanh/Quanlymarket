@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /
+#Khong cho do tim
+#Phuc
+#Khong cho do tim

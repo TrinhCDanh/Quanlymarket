@@ -1,0 +1,45 @@
+.mt-10{
+    margin-top: 10px;
+}
+.custom-table .table th{
+    text-align: center;
+    vertical-align: middle;
+}
+.table-border .table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid    #ccc;
+    border-top: 1px solid   #ccc;
+
+
+}
+.table-border .table.table-hover{
+    border: 1px solid   #ccc;
+}
+.table-border .table>tbody+tbody{
+    border-top: 1px solid   #ccc;
+}
+.border-none{
+    border: none;
+}
+
+.paginate .pagination{
+    margin: 0;
+}
+
+.record-show .form-control {
+    width:auto;
+}
+.radio {
+    margin-right: 5px !important;
+    display: inline-block !important;
+}
+
+.radio-button {
+    display: inline-block;
+/ / padding-right: 13 %;
+}
+.checkbox-button{
+    display: inline-block;
+    padding-right: 9px;
+    vertical-align: text-bottom;
+}

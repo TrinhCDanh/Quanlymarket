@@ -1,0 +1,55 @@
+/*danh sach mat hang kinh doanh*/
+
+/*list */
+SELECT c.ten AS tencho, hkd.ma_so_ho_kd AS soquaykinhdoanh, hkd.tang, hkd.ma_so_giay_to AS soGCNDKKD,
+hkd.ten_ho_kd AS tenchuhoKD, hkd.sdt_ho_kd AS sdthoKD, nkd.ten_nganh AS nganhngheKDching, dsmhkd.giay_ATTP AS giayATTP,
+dsmhkd.ma_so_giay_ATTP, dsmhkd.thoi_gian_hieu_luc_ATTP, dsmhkd.ten AS tenmathangKD, cscc.ten AS tenCSCC, s.ten AS tensap,
+cscc.dia_chi AS diachiCSCC, cscc.sdt AS sdt_CSCC, dsmhkd.luong_hang_bq_nhap, dsmhkd.ten_giay_chung_nhan, dsmhkd.url_giay_chung_nhan,
+dsmhkd.ghi_chu
+FROM danh_sach_mat_hang_kd AS dsmhkd
+INNER JOIN sap AS s ON s.id = dsmhkd.id_sap
+INNER JOIN cho AS c ON c.id = s.id_cho
+INNER JOIN ho_kinh_doanh AS hkd ON hkd.id = s.id_ho_kinh_doanh
+INNER JOIN nganh_kd AS nkd ON nkd.id = hkd.id_nganh_kd
+INNER JOIN co_so_cc AS cscc ON cscc.id = dsmhkd.id_co_so_cc
+WHERE hkd.id = 1 
+
+/* Update id */
+UPDATE danh_sach_mat_hang_kd
+SET ten = 'tom hum', ghi_chu = 'dac san PY'
+WHERE id = 6; 
+
+UPDATE danh_sach_mat_hang_kd
+SET ghi_chu = 'dac san', luong_hang_bq_nhap = 'muc'
+WHERE id <3 AND id >5
+
+
+/*them mat hang san pham*/
+INSERT INTO danh_sach_mat_hang_kd (id, ten, id_sap, id_co_so_cc, luong_hang_bq_nhap, id_don_vi, ghi_chu, ten_giay_chung_nhan, 
+url_giay_chung_nhan, giay_ATTP, ma_so_giay_ATTP, thoi_gian_hieu_luc_ATTP)
+VALUES (8,'ga',4,4,'44444',3,'dac san','chung nhan AT','4444','giay_ATTP','111','2019-01-01');
+
+   
+
+ 
+  /**/ 
+SELECT COUNT(ma_so_ho_kd) AS sohokinhdoanh
+FROM ho_kinh_doanh AS hkd
+/*INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id*/
+INNER JOIN nganh_kd AS nkd ON nkd.id = hkd.id_nganh_kd
+WHERE nkd.id = 1
+
+/**/
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram 
+FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho=c.id
+WHERE nganh_kd.id=1 AND c.id = 1
+
+/**/
+SELECT COUNT(ma_so_ho_kd) AS sohokinhdoanh  
+FROM danh_sach_mat_hang_kd AS dsmhkd
+INNER JOIN sap AS s ON s.id = dsmhkd.id_sap
+INNER JOIN ho_kinh_doanh AS hkd ON hkd.id = s.id_ho_kinh_doanh
+WHERE dsmhkd.giay_ATTP = 'da cap'
+   

@@ -1,0 +1,63 @@
+
+{SQL List] Báo cáo tình hình kê khai các mặt hàng kinh doanh (Mẫu) 7129
+
+
+
+
+SELECT h.ten_ho_kd, s.ten, h.ma_so_ho_kd AS GCNKD, dsmh.ma_so_giay_ATTP, dsmh.thoi_gian_hieu_luc_ATTP,
+	dsmh.ten, cs.dia_chi, dsmh.luong_hang_bq_nhap, dsmh.ten_giay_chung_nhan
+FROM ho_kinh_doanh AS h
+	INNER JOIN sap AS s ON h.id = s.id_ho_kinh_doanh
+	INNER JOIN danh_sach_mat_hang_kd AS dsmh ON dsmh.id_sap = s.id
+	INNER JOIN co_so_cc AS cs ON dsmh.id_co_so_cc = cs.id
+	
+	
+	
+	+ getLimited - Lấy danh sách dữ liệu có phân trang, điều kiện
+	
+
+SELECT h.ten_ho_kd, s.ten, h.ma_so_ho_kd AS GCNKD, dsmh.ma_so_giay_ATTP, dsmh.thoi_gian_hieu_luc_ATTP,
+	dsmh.ten, cs.dia_chi, dsmh.luong_hang_bq_nhap, dsmh.ten_giay_chung_nhan
+FROM ho_kinh_doanh AS h
+	INNER JOIN sap AS s ON h.id = s.id_ho_kinh_doanh
+	INNER JOIN danh_sach_mat_hang_kd AS dsmh ON dsmh.id_sap = s.id
+	INNER JOIN co_so_cc AS cs ON dsmh.id_co_so_cc = cs.id
+LIMIT 2,3
+
+	+getByID
+	
+SELECT h.ten_ho_kd, s.ten, h.ma_so_ho_kd AS GCNKD, dsmh.ma_so_giay_ATTP, dsmh.thoi_gian_hieu_luc_ATTP,
+	dsmh.ten, cs.dia_chi, dsmh.luong_hang_bq_nhap, dsmh.ten_giay_chung_nhan
+FROM ho_kinh_doanh AS h
+	INNER JOIN sap AS s ON h.id = s.id_ho_kinh_doanh
+	INNER JOIN danh_sach_mat_hang_kd AS dsmh ON dsmh.id_sap = s.id
+	INNER JOIN co_so_cc AS cs ON dsmh.id_co_so_cc = cs.id
+	WHERE h.id = 1
+	
+	
+	+getByKeyWord
+	
+	
+SELECT h.ten_ho_kd, s.ten, h.ma_so_ho_kd AS GCNKD, dsmh.ma_so_giay_ATTP, dsmh.thoi_gian_hieu_luc_ATTP,
+	dsmh.ten, cs.dia_chi, dsmh.luong_hang_bq_nhap, dsmh.ten_giay_chung_nhan
+FROM ho_kinh_doanh AS h
+	INNER JOIN sap AS s ON h.id = s.id_ho_kinh_doanh
+	INNER JOIN danh_sach_mat_hang_kd AS dsmh ON dsmh.id_sap = s.id
+	INNER JOIN co_so_cc AS cs ON dsmh.id_co_so_cc = cs.id
+WHERE dsmh.ten = 'thịt heo'
+
+
+	+gettop 10
+	
+	
+	
+SELECT h.ten_ho_kd, s.ten, h.ma_so_ho_kd AS GCNKD, dsmh.ma_so_giay_ATTP, dsmh.thoi_gian_hieu_luc_ATTP,
+	dsmh.ten, cs.dia_chi, dsmh.luong_hang_bq_nhap, dsmh.ten_giay_chung_nhan
+FROM ho_kinh_doanh AS h
+	INNER JOIN sap AS s ON h.id = s.id_ho_kinh_doanh
+	INNER JOIN danh_sach_mat_hang_kd AS dsmh ON dsmh.id_sap = s.id
+	INNER JOIN co_so_cc AS cs ON dsmh.id_co_so_cc = cs.id
+	LIMIT 10
+
+
+	

@@ -1,0 +1,810 @@
+{SQL List] Báo cáo tình hình kê khai các mặt hàng kinh doanh (7129)
+
+
+++++ Chợ An Đông
+Số hộ kinh doanh thực phẩm
+
+SELECT COUNT(ma_so_ho_kd) AS sốhộkinhdoanh FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+
+
+phần trăm các ngành:
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 1 AND c.id = 1
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 2 AND c.id = 1
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 3 AND c.id = 1
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 4 AND c.id = 1
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 5 AND c.id = 1
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 6 AND c.id = 1
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 7 AND c.id = 1
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 8 AND c.id = 1
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 9 AND c.id = 1
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 10 AND c.id = 1
+
+
+
+
+về cấp GCN ATTP
++
+SELECT COUNT(ma_so_ho_kd) AS sohokinhdoanh
+FROM danh_sach_mat_hang_kd AS dsmh
+	INNER JOIN ho_kinh_doanh AS h ON h.id = dsmh.id_ho_kd
+	INNER JOIN cho AS c ON c.id = h.id_cho
+WHERE h.giay_ATTP_Status LIKE 'da cap'
++
+SELECT COUNT(ma_so_ho_kd) AS sohokinhdoanh
+FROM danh_sach_mat_hang_kd AS dsmh
+	INNER JOIN ho_kinh_doanh AS h ON h.id = dsmh.id_ho_kd
+	INNER JOIN cho AS c ON c.id = h.id_cho
+WHERE h.giay_ATTP_Status LIKE 'dang cho cap'
++
+SELECT COUNT(ma_so_ho_kd) AS sohokinhdoanh
+FROM danh_sach_mat_hang_kd AS dsmh
+	INNER JOIN ho_kinh_doanh AS h ON h.id = dsmh.id_ho_kd
+	INNER JOIN cho AS c ON c.id = h.id_cho
+WHERE h.giay_ATTP_Status LIKE 'chua cap'
+
+
+
+++++ Chợ Hòa Bình
+
+
+
+Số hộ kinh doanh thực phẩm
+
+SELECT COUNT(ma_so_ho_kd) AS sốhộkinhdoanh FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+
+
+phần trăm các ngành:
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 2 AND c.id = 2
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 3 AND c.id = 2
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 4 AND c.id = 2
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 4 AND c.id = 2
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 5 AND c.id = 2
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 6 AND c.id = 2
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 7 AND c.id = 2
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 8 AND c.id = 2
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 9 AND c.id = 2
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 10 AND c.id = 2
+
+
+
+
+về cấp GCN ATTP
++
+SELECT COUNT(ma_so_ho_kd) AS sohokinhdoanh
+FROM danh_sach_mat_hang_kd AS dsmh
+	INNER JOIN ho_kinh_doanh AS h ON h.id = dsmh.id_ho_kd
+	INNER JOIN cho AS c ON c.id = h.id_cho
+WHERE h.giay_ATTP_Status LIKE 'da cap'
++
+SELECT COUNT(ma_so_ho_kd) AS sohokinhdoanh
+FROM danh_sach_mat_hang_kd AS dsmh
+	INNER JOIN ho_kinh_doanh AS h ON h.id = dsmh.id_ho_kd
+	INNER JOIN cho AS c ON c.id = h.id_cho
+WHERE h.giay_ATTP_Status LIKE 'dang cho cap'
++
+SELECT COUNT(ma_so_ho_kd) AS sohokinhdoanh
+FROM danh_sach_mat_hang_kd AS dsmh
+	INNER JOIN ho_kinh_doanh AS h ON h.id = dsmh.id_ho_kd
+	INNER JOIN cho AS c ON c.id = h.id_cho
+WHERE h.giay_ATTP_Status LIKE 'chua cap'
+
+
+
+++++ Chợ Bàu Sen
+
+
+Số hộ kinh doanh thực phẩm
+
+SELECT COUNT(ma_so_ho_kd) AS sốhộkinhdoanh FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+
+
+phần trăm các ngành:
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 1 AND c.id = 3
+
+
+UNION ALL
+
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 2 AND c.id = 3
+
+
+UNION ALL
+
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 3 AND c.id = 3
+
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 4 AND c.id = 3
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 5 AND c.id = 3
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 6 AND c.id = 3
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 7 AND c.id = 3
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 8 AND c.id = 3
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 9 AND c.id = 3
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 10 AND c.id = 3
+
+
+về cấp GCN ATTP
++
+SELECT COUNT(ma_so_ho_kd) AS sohokinhdoanh
+FROM danh_sach_mat_hang_kd AS dsmh
+	INNER JOIN ho_kinh_doanh AS h ON h.id = dsmh.id_ho_kd
+	INNER JOIN cho AS c ON c.id = h.id_cho
+WHERE h.giay_ATTP_Status LIKE 'da cap'
++
+SELECT COUNT(ma_so_ho_kd) AS sohokinhdoanh
+FROM danh_sach_mat_hang_kd AS dsmh
+	INNER JOIN ho_kinh_doanh AS h ON h.id = dsmh.id_ho_kd
+	INNER JOIN cho AS c ON c.id = h.id_cho
+WHERE h.giay_ATTP_Status LIKE 'dang cho cap'
++
+SELECT COUNT(ma_so_ho_kd) AS sohokinhdoanh
+FROM danh_sach_mat_hang_kd AS dsmh
+	INNER JOIN ho_kinh_doanh AS h ON h.id = dsmh.id_ho_kd
+	INNER JOIN cho AS c ON c.id = h.id_cho
+WHERE h.giay_ATTP_Status LIKE 'chua cap'
+
+
+++++ Chợ Phùng Hưng
+
+
+Số hộ kinh doanh thực phẩm
+
+SELECT COUNT(ma_so_ho_kd) AS sốhộkinhdoanh FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+
+
+phần trăm các ngành:
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 1 AND c.id = 4
+
+
+UNION ALL
+
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 2 AND c.id = 4
+
+
+UNION ALL
+
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 3 AND c.id = 4
+
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 4 AND c.id = 4
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 5 AND c.id = 4
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 6 AND c.id = 4
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 7 AND c.id = 4
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 8 AND c.id = 4
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 9 AND c.id = 4
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 10 AND c.id = 4
+
+
+về cấp GCN ATTP
++
+SELECT COUNT(ma_so_ho_kd) AS sohokinhdoanh
+FROM danh_sach_mat_hang_kd AS dsmh
+	INNER JOIN ho_kinh_doanh AS h ON h.id = dsmh.id_ho_kd
+	INNER JOIN cho AS c ON c.id = h.id_cho
+WHERE h.giay_ATTP_Status LIKE 'da cap'
++
+SELECT COUNT(ma_so_ho_kd) AS sohokinhdoanh
+FROM danh_sach_mat_hang_kd AS dsmh
+	INNER JOIN ho_kinh_doanh AS h ON h.id = dsmh.id_ho_kd
+	INNER JOIN cho AS c ON c.id = h.id_cho
+WHERE h.giay_ATTP_Status LIKE 'dang cho cap'
++
+SELECT COUNT(ma_so_ho_kd) AS sohokinhdoanh
+FROM danh_sach_mat_hang_kd AS dsmh
+	INNER JOIN ho_kinh_doanh AS h ON h.id = dsmh.id_ho_kd
+	INNER JOIN cho AS c ON c.id = h.id_cho
+WHERE h.giay_ATTP_Status LIKE 'chua cap'
+
+
+
+++++ Chợ Hà Tôn Quyền
+
+
+Số hộ kinh doanh thực phẩm
+
+SELECT COUNT(ma_so_ho_kd) AS sốhộkinhdoanh FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+
+
+phần trăm các ngành:
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 1 AND c.id = 5
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 2 AND c.id = 5
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 3 AND c.id = 5
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 4 AND c.id = 5
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 5 AND c.id = 5
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 6 AND c.id = 5
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 7 AND c.id = 5
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 8 AND c.id = 5
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 9 AND c.id = 5
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 10 AND c.id = 5
+
+
+
+
+về cấp GCN ATTP
++
+SELECT COUNT(ma_so_ho_kd) AS sohokinhdoanh
+FROM danh_sach_mat_hang_kd AS dsmh
+	INNER JOIN ho_kinh_doanh AS h ON h.id = dsmh.id_ho_kd
+	INNER JOIN cho AS c ON c.id = h.id_cho
+WHERE h.giay_ATTP_Status LIKE 'da cap'
++
+SELECT COUNT(ma_so_ho_kd) AS sohokinhdoanh
+FROM danh_sach_mat_hang_kd AS dsmh
+	INNER JOIN ho_kinh_doanh AS h ON h.id = dsmh.id_ho_kd
+	INNER JOIN cho AS c ON c.id = h.id_cho
+WHERE h.giay_ATTP_Status LIKE 'dang cho cap'
++
+SELECT COUNT(ma_so_ho_kd) AS sohokinhdoanh
+FROM danh_sach_mat_hang_kd AS dsmh
+	INNER JOIN ho_kinh_doanh AS h ON h.id = dsmh.id_ho_kd
+	INNER JOIN cho AS c ON c.id = h.id_cho
+WHERE h.giay_ATTP_Status LIKE 'chua cap'
+
+
+++++ Chợ Xã Tây
+
+
+Số hộ kinh doanh thực phẩm
+
+SELECT COUNT(ma_so_ho_kd) AS sốhộkinhdoanh FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+
+
+phần trăm các ngành:
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 1 AND c.id = 6
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 2 AND c.id = 6
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 3 AND c.id = 6
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 4 AND c.id = 6
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 5 AND c.id = 6
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 6 AND c.id = 6
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 7 AND c.id = 6
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 8 AND c.id = 6
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 9 AND c.id = 6
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 10 AND c.id = 6
+
+
+
+
+về cấp GCN ATTP
++
+SELECT COUNT(ma_so_ho_kd) AS sohokinhdoanh
+FROM danh_sach_mat_hang_kd AS dsmh
+	INNER JOIN ho_kinh_doanh AS h ON h.id = dsmh.id_ho_kd
+	INNER JOIN cho AS c ON c.id = h.id_cho
+WHERE h.giay_ATTP_Status LIKE 'da cap'
++
+SELECT COUNT(ma_so_ho_kd) AS sohokinhdoanh
+FROM danh_sach_mat_hang_kd AS dsmh
+	INNER JOIN ho_kinh_doanh AS h ON h.id = dsmh.id_ho_kd
+	INNER JOIN cho AS c ON c.id = h.id_cho
+WHERE h.giay_ATTP_Status LIKE 'dang cho cap'
++
+SELECT COUNT(ma_so_ho_kd) AS sohokinhdoanh
+FROM danh_sach_mat_hang_kd AS dsmh
+	INNER JOIN ho_kinh_doanh AS h ON h.id = dsmh.id_ho_kd
+	INNER JOIN cho AS c ON c.id = h.id_cho
+WHERE h.giay_ATTP_Status LIKE 'chua cap'
+
+
+++++ Chợ Cao Đạt
+
+
+
+Số hộ kinh doanh thực phẩm
+
+SELECT COUNT(ma_so_ho_kd) AS sốhộkinhdoanh FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+
+
+phần trăm các ngành:
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 1 AND c.id = 7
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 2 AND c.id = 7
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 3 AND c.id = 7
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 4 AND c.id = 7
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 5 AND c.id = 7
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 6 AND c.id = 7
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 7 AND c.id = 7
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 8 AND c.id = 7
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 9 AND c.id = 7
+
+UNION ALL
+
+SELECT nganh_kd.ten_nganh, COUNT(ma_so_ho_kd)/7*100 AS chiemphantram
+	FROM ho_kinh_doanh
+INNER JOIN nganh_kd ON ho_kinh_doanh.id_nganh_kd = nganh_kd.id
+INNER JOIN cho AS c ON ho_kinh_doanh.id_cho = c.id
+WHERE nganh_kd.id = 10 AND c.id = 7
+
+
+
+
+về cấp GCN ATTP
++
+SELECT COUNT(ma_so_ho_kd) AS sohokinhdoanh
+FROM danh_sach_mat_hang_kd AS dsmh
+	INNER JOIN ho_kinh_doanh AS h ON h.id = dsmh.id_ho_kd
+	INNER JOIN cho AS c ON c.id = h.id_cho
+WHERE h.giay_ATTP_Status LIKE 'da cap'
++
+SELECT COUNT(ma_so_ho_kd) AS sohokinhdoanh
+FROM danh_sach_mat_hang_kd AS dsmh
+	INNER JOIN ho_kinh_doanh AS h ON h.id = dsmh.id_ho_kd
+	INNER JOIN cho AS c ON c.id = h.id_cho
+WHERE h.giay_ATTP_Status LIKE 'dang cho cap'
++
+SELECT COUNT(ma_so_ho_kd) AS sohokinhdoanh
+FROM danh_sach_mat_hang_kd AS dsmh
+	INNER JOIN ho_kinh_doanh AS h ON h.id = dsmh.id_ho_kd
+	INNER JOIN cho AS c ON c.id = h.id_cho
+WHERE h.giay_ATTP_Status LIKE 'chua cap'
+
+

@@ -1,0 +1,7 @@
+﻿SELECT hkd.ten_ho_kd, s.ten AS sap, hkd.ma_so_ho_kd AS gcn_dkkd, dsmhkd.ten AS mat_hang_kd, cscc.ten AS don_vi_cung_cap,
+cscc.dia_chi AS dia_chi_cc, dsmhkd.luong_hang_bq_nhap, dvt.ten AS don_vi_tinh, dsmhkd.ten_giay_chung_nhan, dsmhkd.ghi_chu
+FROM ho_kinh_doanh AS hkd 
+INNER JOIN sap AS s ON s.id = hkd.id_cho
+INNER JOIN danh_sach_mat_hang_kd AS dsmhkd ON dsmhkd.id = hkd.id_nganh_kd
+INNER JOIN co_so_cc AS cscc ON cscc.id = dsmhkd.id_co_so_cc
+INNER JOIN don_vi_tinh AS dvt ON dvt.id = dsmhkd.id_don_vi
